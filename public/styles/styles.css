@@ -1,0 +1,14 @@
+.capitol-icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.head-text {
+  font-size: 72px !important;
+}
+
+.head-btn {
+  margin-top: 40px;
+}
