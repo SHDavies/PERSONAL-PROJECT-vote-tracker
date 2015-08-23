@@ -16,3 +16,10 @@
 up-down {
   margin-top: 10px;
 }
+
+.vote-count {
+  position: relative;
+  right: 5px;
+  bottom: 2px;
+  padding: 3px 8px;
+}
