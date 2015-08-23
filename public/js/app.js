@@ -1,12 +1,16 @@
 var app = angular.module('voteApp', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/main/home");
 
   $stateProvider
-    .state('home', {
-      url: '/',
-      templateUrl: './views/home.html',
+    .state('main', {
+      url: '/main',
+      templateUrl: './views/main.html'
+    })
+    .state('main.home', {
+      url: '/home',
+      templateUrl: './views/main.home.html',
       controller: 'HomeCtrl'
     })
     .state('admin', {
