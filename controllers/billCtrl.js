@@ -43,7 +43,7 @@ module.exports = {
           break;
         case 'downToUp':
           upVotes++;
-          downvotes--;
+          downVotes--;
           Bill.findByIdAndUpdate(billId, {upvotes: upVotes, downvotes: downVotes}, {select: 'upvotes downvotes'}, function(err, result) {
             if (err) return res.status(500).send(err);
             else res.json(result);
@@ -65,7 +65,7 @@ module.exports = {
           break;
         case 'upToDown':
           upVotes--;
-          downvotes++;
+          downVotes++;
           Bill.findByIdAndUpdate(billId, {upvotes: upVotes, downvotes: downVotes}, {select: 'upvotes downvotes'}, function(err, result) {
             if (err) return res.status(500).send(err);
             else res.json(result);

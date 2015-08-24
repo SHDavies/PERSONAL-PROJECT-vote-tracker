@@ -1,4 +1,4 @@
-var app = angular.module('voteApp', ['ui.router']);
+var app = angular.module('voteApp', ['ui.router', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/main/home");

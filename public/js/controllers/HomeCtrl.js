@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', function($scope, homeService, $timeout) {
+app.controller('HomeCtrl', function($scope, homeService) {
   $scope.getAllBills = function() {
     homeService.getAllBills().then(function(response) {
       $scope.bills = response;
@@ -6,6 +6,8 @@ app.controller('HomeCtrl', function($scope, homeService, $timeout) {
   };
 
   $scope.bills = $scope.getAllBills();
+
+  $scope.showDescription = false;
 
   $scope.billVote = function(vote, index) {
     var billId = $scope.bills[index]._id;

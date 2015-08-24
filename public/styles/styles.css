@@ -1,3 +1,7 @@
+.ng-hide-add, .ng-hide-remove {
+  display: block !important;
+}
+
 .capitol-icon {
   height: 100px;
   width: 100px;
@@ -14,7 +18,7 @@
 }
 
 up-down {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .vote-count {
@@ -22,4 +26,44 @@ up-down {
   right: 5px;
   bottom: 2px;
   padding: 3px 8px;
+}
+
+.status {
+  position: relative;
+  top: 18px;
+}
+
+.glyphicon-collapse-down {
+  font-size: 25px;
+  position: relative;
+  top: 23px;
+  cursor: pointer;
+}
+
+.glyphicon-collapse-up {
+  font-size: 25px;
+  position: relative;
+  top: 23px;
+  cursor: pointer;
+}
+
+.result-head {
+  text-align: center;
+}
+
+.vote-area {
+  text-align: center;
+  font-weight: bold;
+}
+
+.aye {
+  color: green;
+}
+
+.nay {
+  color: red;
+}
+
+.present {
+  color: gray;
 }
