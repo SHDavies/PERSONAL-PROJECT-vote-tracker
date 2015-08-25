@@ -1,12 +1,12 @@
-.ng-hide-add, .ng-hide-remove {
-  display: block !important;
-}
-
 .capitol-icon {
   height: 100px;
   width: 100px;
   border-radius: 15px;
   display: inline-block;
+}
+
+.nav-pills>li {
+  cursor: pointer;
 }
 
 .head-text {
@@ -47,6 +47,22 @@ up-down {
   cursor: pointer;
 }
 
+.glyphicon-pencil {
+  font-size: 25px;
+  position: relative;
+  top: 23px;
+  left: 15px;
+}
+
+.glyphicon-menu-left {
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.more-box {
+  margin-bottom: 15px;
+}
+
 .result-head {
   text-align: center;
 }
@@ -65,5 +81,5 @@ up-down {
 }
 
 .present {
-  color: gray;
+  color: grey;
 }

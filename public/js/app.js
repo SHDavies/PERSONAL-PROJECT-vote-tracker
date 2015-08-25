@@ -16,5 +16,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('admin', {
       templateUrl: './views/admin.html',
       controller: 'AdminCtrl'
+    })
+    .state('main.comments', {
+      url: '/comments/:billId',
+      templateUrl: './views/main.comments.html',
+      controller: 'CommentsCtrl',
+      resolve: {
+        bill: function(commentsService, $stateParams) {
+          return commentsService.getComments($stateParams.billId);
+        }
+      }
     });
 });

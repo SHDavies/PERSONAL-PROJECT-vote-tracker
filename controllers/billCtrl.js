@@ -1,4 +1,5 @@
 var Bill = require('../models/Bill');
+var Comment = require('../models/Comment');
 
 module.exports = {
   create: function(req, res) {
@@ -71,6 +72,27 @@ module.exports = {
             else res.json(result);
           });
           break;
+      }
+    });
+  },
+
+  getComments: function(req, res) {
+    Bill.findById(req.params.billId)
+    .populate('comments')
+    .exec(function(err, result) {
+      console.log(err);
+      if (err) return res.status(500).send(err);
+      else res.send(result);
+    });
+  },
+
+  postComment: function(req, res) {
+    var commentId;
+    var newComment = new Bill(req.body);
+    newComment.save(function(err, result) {
+      if (err) return res.status(500).send(err);
+      else {
+        commentId = result._id;
       }
     });
   }

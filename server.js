@@ -17,8 +17,9 @@ app.use(express.static('./public'));
 /////////////Endpoints/////////////
 app.post('/bill', billCtrl.create);
 app.get('/bill', billCtrl.readAll);
+app.get('/bill/comments/:billId', billCtrl.getComments);
 app.put('/bill/:billId', billCtrl.updateVote);
-
+app.post('/bill/comments/:billId', billCtrl.postComment);
 /////////////Connections/////////////
 var mongoUri = 'mongodb://localhost:27017/vote-tracker';
 

@@ -5,3 +5,5 @@ var commentSchema = new mongoose.Schema({
   commenter: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   timestamp: {type: Date, default: Date.now}
 });
+
+module.exports = mongoose.model('Comment', commentSchema);
