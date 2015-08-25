@@ -24,8 +24,27 @@
 }
 
 .head-text {
-  font-size: 72px !important;
+  font-family: 'Scada', sans-serif;
+  font-style: italic;
+  margin-left: 2px;
+  /*-webkit-text-stroke: 1px #337ab7;*/
   color: #337ab7;
+  text-shadow:
+    3px 3px 3px #1F2933,
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+   -1px -1px 0 #1F2933,
+    1px -1px 0 #1F2933,
+   -1px  1px 0 #1F2933,
+    1px  1px 0 #1F2933;
+}
+
+.shadow-box {
+  box-shadow: 5px 5px 10px #000,
+  -1px -1px 0px #000,
+   1px -1px 0px #000,
+  -1px  1px 0px #000,
+   1px  1px 0px #000;
 }
 
 .head-btn {
@@ -77,6 +96,7 @@ up-down {
 .glyphicon-menu-left {
   font-size: 36px;
   margin-top: 20px;
+  margin-left: 25px;
 }
 
 .more-box {
