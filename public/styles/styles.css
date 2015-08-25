@@ -1,3 +1,17 @@
+#bgvideo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
 .capitol-icon {
   height: 100px;
   width: 100px;
@@ -11,6 +25,7 @@
 
 .head-text {
   font-size: 72px !important;
+  color: #337ab7;
 }
 
 .head-btn {
@@ -31,6 +46,11 @@ up-down {
 .status {
   position: relative;
   top: 18px;
+}
+
+.comment-page {
+  color: #337ab7;
+  font-weight: bold;
 }
 
 .glyphicon-collapse-down {
@@ -72,6 +92,13 @@ up-down {
   font-weight: bold;
 }
 
+.comment-count {
+  position: relative;
+  top: 25px;
+  font-weight: bold;
+  color: #337ab7;
+}
+
 .aye {
   color: green;
 }
@@ -82,4 +109,8 @@ up-down {
 
 .present {
   color: grey;
+}
+
+.comment-submit {
+  margin-top: 10px;
 }

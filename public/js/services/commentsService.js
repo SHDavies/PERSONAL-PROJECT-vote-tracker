@@ -11,15 +11,13 @@ app.service('commentsService', function($q, $http) {
   };
 
   this.postComment = function(comment, billId) {
-    var d = new Date();
-    var date = d.toString();
+    var date = new Date();
     var deferred = $q.defer();
     $http({
       method: 'POST',
       url: 'http://localhost:4000/bill/comments/' + billId,
       data: {
         comment: comment,
-        created_by: "admin",
         timestamp: date
       }
     }).then(function(response) {

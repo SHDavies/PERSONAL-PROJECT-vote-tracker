@@ -1,36 +1,39 @@
-<div class="row bill-cell" ng-repeat="bill in bills">
-  <div class="panel panel-primary col-md-12 bill-panel">
-    <div class="panel-body">
-      <div class="row">
-        <up-down class="col-sm-1"></up-down>
-        <h3 class="col-sm-6">{{bill.short_title}}</h3>
-        <h3 class="col-sm-2 status">{{bill.created_by}}</h3>
-        <h5 class="col-sm-2 status">{{bill.status | uppercase}}</h5>
-        <span class="glyphicon glyphicon-collapse-down" drop-down ng-click="showDescription = !showDescription"></span>
-        <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-pencil"></span></a>
-      </div>
-    </div>
-    <div class="panel-footer more-box" ng-show="showDescription">
-      <div class="row">
-        <h3 class="col-sm-6 result-head">Senate Votes</h3>
-        <h3 class="col-sm-6 result-head">House Votes</h3>
-      </div>
-      <div class="row">
-        <div class="vote-area col-sm-6">
-          <span>Aye: <span class="aye">{{bill.results.senate_votes.aye || "N/A"}}</span>&nbsp &nbsp</span>
-          <span>Nay: <span class="nay">{{bill.results.senate_votes.nay || "N/A"}}</span>&nbsp &nbsp</span>
-          <span>Present: <span class="present">{{bill.results.senate_votes.present || "N/A"}}</span></span>
-        </div>
-        <div class="vote-area col-sm-6">
-          <span>Aye: <span class="aye">{{bill.results.house_votes.aye || "N/A"}}</span>&nbsp &nbsp</span>
-          <span>Nay: <span class="nay">{{bill.results.house_votes.nay || "N/A"}}</span>&nbsp &nbsp</span>
-          <span>Present: <span class="present">{{bill.results.house_votes.present || "N/A"}}</span></span>
+<div class="container-fluid">
+  <div class="row bill-cell" ng-repeat="bill in bills">
+    <div class="panel panel-primary col-md-12 bill-panel">
+      <div class="panel-body">
+        <div class="row">
+          <up-down class="col-sm-1"></up-down>
+          <h3 class="col-sm-6">{{bill.short_title}}</h3>
+          <h3 class="col-sm-2 status">{{bill.created_by}}</h3>
+          <h5 class="col-sm-2 status">{{bill.status | uppercase}}</h5>
+          <span class="glyphicon glyphicon-collapse-down" drop-down ng-click="showDescription = !showDescription"></span>
+          <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <span class="comment-count">{{bill.comments.length}}</span>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-12">
-          <p>{{bill.description}}</p>
+      <div class="panel-footer more-box" ng-show="showDescription">
+        <div class="row">
+          <h3 class="col-sm-6 result-head">Senate Votes</h3>
+          <h3 class="col-sm-6 result-head">House Votes</h3>
+        </div>
+        <div class="row">
+          <div class="vote-area col-sm-6">
+            <span>Aye: <span class="aye">{{bill.results.senate_votes.aye || "N/A"}}</span>&nbsp &nbsp</span>
+            <span>Nay: <span class="nay">{{bill.results.senate_votes.nay || "N/A"}}</span>&nbsp &nbsp</span>
+            <span>Present: <span class="present">{{bill.results.senate_votes.present || "N/A"}}</span></span>
+          </div>
+          <div class="vote-area col-sm-6">
+            <span>Aye: <span class="aye">{{bill.results.house_votes.aye || "N/A"}}</span>&nbsp &nbsp</span>
+            <span>Nay: <span class="nay">{{bill.results.house_votes.nay || "N/A"}}</span>&nbsp &nbsp</span>
+            <span>Present: <span class="present">{{bill.results.house_votes.present || "N/A"}}</span></span>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <p>{{bill.description}}</p>
+          </div>
         </div>
       </div>
     </div>
