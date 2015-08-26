@@ -41,10 +41,20 @@
 
 .shadow-box {
   box-shadow: 5px 5px 10px #000,
-  -1px -1px 0px #000,
+  /*-1px -1px 0px #000,
    1px -1px 0px #000,
   -1px  1px 0px #000,
-   1px  1px 0px #000;
+   1px  1px 0px #000;*/
+}
+
+.sign-up-input {
+  border-radius: 20px;
+  padding: 3px 6px;
+  width: 200px;
+}
+
+.comment-area {
+  padding: 5px;
 }
 
 .head-btn {
