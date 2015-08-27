@@ -40,11 +40,7 @@
 }
 
 .shadow-box {
-  box-shadow: 5px 5px 10px #000,
-  /*-1px -1px 0px #000,
-   1px -1px 0px #000,
-  -1px  1px 0px #000,
-   1px  1px 0px #000;*/
+  box-shadow: 5px 5px 10px #000
 }
 
 .sign-up-input {
@@ -77,6 +73,10 @@ up-down {
   top: 18px;
 }
 
+.big-input {
+  width: 90%;
+}
+
 .comment-page {
   color: #337ab7;
   font-weight: bold;
@@ -96,7 +96,7 @@ up-down {
   cursor: pointer;
 }
 
-.glyphicon-pencil {
+.glyphicon-comment {
   font-size: 25px;
   position: relative;
   top: 23px;
@@ -124,9 +124,9 @@ up-down {
 
 .comment-count {
   position: relative;
-  top: 25px;
+  top: 13px;
   font-weight: bold;
-  color: #337ab7;
+  color: white;
 }
 
 .aye {
@@ -143,4 +143,29 @@ up-down {
 
 .comment-submit {
   margin-top: 10px;
+}
+
+.submit-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #337ab7;
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  cursor: pointer;
+}
+
+.submit-button:active {
+  bottom: 56px;
+  right: 56px;
+  box-shadow: 0px 0px 0px;
+}
+
+.glyphicon-pencil {
+  position: relative;
+  top: 18px;
+  left: 18px;
+  font-size: 25px;
+  color: white;
 }

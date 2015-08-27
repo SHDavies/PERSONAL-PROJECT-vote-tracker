@@ -1,3 +1,68 @@
+<!-- Add Post Modal -->
+<div id="addBillModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add A Bill</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="addBill()" name="addBillForm">
+          <div class="row">
+            <div class="col-lg-3">
+              <b>Short Title:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="text" ng-model="short_title" required="true" placeholder="H.R. 1098..." class="sign-up-input big-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Official Title:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="text" ng-model="official_title" placeholder="A bill to..." class="sign-up-input big-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Description:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <textarea rows="8" cols="40" ng-model="description" required="true" class="sign-up-input big-input" placeholder="Description..."></textarea><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Status:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="radio" value="successful" ng-model="status"> Successful</input>&nbsp;&nbsp;
+              <input type="radio" value="failed" ng-model="status"> Failed</input>&nbsp;&nbsp;
+              <input type="radio" value="in progress" ng-model="status"> In Progress</input><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Senate Votes:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="number" ng-model="senate_votes.aye" placeholder="Aye" class="sign-up-input"><br><br>
+              <input type="number" ng-model="senate_votes.nay" placeholder="Nay" class="sign-up-input"><br><br>
+              <input type="number" ng-model="senate_votes.present" placeholder="Present" class="sign-up-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>House Votes:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="number" ng-model="house_votes.aye" placeholder="Aye" class="sign-up-input"><br><br>
+              <input type="number" ng-model="house_votes.nay" placeholder="Nay" class="sign-up-input"><br><br>
+              <input type="number" ng-model="house_votes.present" placeholder="Present" class="sign-up-input"><br><br>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" form="addBillForm" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Body -->
 <div class="container-fluid">
   <div class="row bill-cell" ng-repeat="bill in bills">
     <div class="panel panel-primary col-md-12 bill-panel shadow-box">
@@ -8,7 +73,7 @@
           <h3 class="col-sm-2 status">{{bill.created_by}}</h3>
           <h5 class="col-sm-2 status">{{bill.status | uppercase}}</h5>
           <span class="glyphicon glyphicon-collapse-down" drop-down ng-click="showDescription = !showDescription"></span>
-          <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-comment"></span></a>
           <span class="comment-count">{{bill.comments.length}}</span>
         </div>
       </div>
@@ -38,4 +103,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="submit-button shadow-box" data-toggle="modal" data-target="#addBillModal">
+  <span class="glyphicon glyphicon-pencil"></span>
 </div>

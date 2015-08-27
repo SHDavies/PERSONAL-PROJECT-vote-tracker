@@ -10,10 +10,10 @@
           <form ng-submit="registerUser()" name="signUpForm">
             <div class="row">
               <div class="col-lg-3">
-                <b>Email:</b><br>
+                <b>Username:</b><br>
               </div>
               <div class="col-lg-9">
-                <input type="text" ng-model="newUserEmail" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
+                <input type="text" ng-model="newUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
               </div>
               <div class="col-lg-3">
                 <b>Password:</b><br>
@@ -38,6 +38,39 @@
     </div>
   </div>
 
+  <div id="signInModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="signIn()" name="signInForm">
+            <div class="row">
+              <div class="col-lg-3">
+                <b>Username:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
+              </div>
+              <div class="col-lg-3">
+                <b>Password:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" form="signInForm" class="btn btn-primary">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!-- Header -->
 <div class="container">
   <div class="row page-header">
@@ -49,7 +82,7 @@
       <h1 class="head-text"></h1>
     </div>
     <div class="col-lg-1 head-btn">
-      <button type="button" class="btn btn-default shadow-box">Sign in</button>
+      <button type="button" class="btn btn-default shadow-box" data-toggle="modal" data-target="#signInModal">Sign in</button>
     </div>
     <div class="col-lg-1">
       <button type="button" class="btn btn-default head-btn shadow-box" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
