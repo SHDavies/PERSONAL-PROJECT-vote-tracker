@@ -6,8 +6,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Add A Bill</h4>
       </div>
-      <div class="modal-body">
-        <form ng-submit="addBill()" name="addBillForm">
+      <form ng-submit="addBill()" name="addBillForm">
+        <div class="modal-body">
           <div class="row">
             <div class="col-lg-3">
               <b>Short Title:</b><br>
@@ -52,18 +52,21 @@
               <input type="number" ng-model="house_votes.present" placeholder="Present" class="sign-up-input"><br><br>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" form="addBillForm" class="btn btn-primary">Submit</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" form="addBillForm" class="btn btn-primary" ng-click="addBill()">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
 
 <!-- Body -->
 <div class="container-fluid">
+  <div class="col-lg-12 row home-alerts">
+    <alert ng-repeat="alert in alerts" class="shadow-box" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+  </div>
   <div class="row bill-cell" ng-repeat="bill in bills">
     <div class="panel panel-primary col-md-12 bill-panel shadow-box">
       <div class="panel-body">
@@ -105,6 +108,6 @@
   </div>
 </div>
 
-<div class="submit-button shadow-box" data-toggle="modal" data-target="#addBillModal">
+<div class="submit-button shadow-box" data-toggle="modal" data-target="#addBillModal" ng-show="$parent.signedIn">
   <span class="glyphicon glyphicon-pencil"></span>
 </div>

@@ -89,7 +89,7 @@
       <h4 class="head-text">VoteTracker</h4>
     </div>
     <div class="col-lg-8">
-      <alert ng-repeat="alert in logoutAlerts" type="{{alert.type}}" close="closeLogoutAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+      <alert ng-repeat="alert in signedInAlerts" class="shadow-box" type="{{alert.type}}" close="closeSignedInAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
     </div>
     <div class="col-lg-1 head-btn" ng-hide="signedIn">
       <button type="button" class="btn btn-default shadow-box" data-toggle="modal" data-target="#signInModal">Sign In</button>
