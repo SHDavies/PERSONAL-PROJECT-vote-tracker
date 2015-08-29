@@ -1,4 +1,4 @@
-var app = angular.module('voteApp', ['ui.router', 'ngAnimate']);
+var app = angular.module('voteApp', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/main/home");
@@ -6,7 +6,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/main',
-      templateUrl: './views/main.html'
+      templateUrl: './views/main.html',
+      controller: 'MainCtrl'
     })
     .state('main.home', {
       url: '/home',

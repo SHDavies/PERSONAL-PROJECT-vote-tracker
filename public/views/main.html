@@ -1,75 +1,85 @@
 <!-- Modals -->
-  <div id="signUpModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Sign Up</h4>
+<div id="signUpModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+          </div>
         </div>
-        <div class="modal-body">
-          <form ng-submit="registerUser()" name="signUpForm">
-            <div class="row">
-              <div class="col-lg-3">
-                <b>Username:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="text" ng-model="newUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
-              </div>
-              <div class="col-lg-3">
-                <b>Password:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="password" ng-model="newUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
-              </div>
-              <div class="col-lg-3">
-                <b>Verify Password:</b>
-              </div>
-              <div class="col-lg-9">
-                <input type="password" ng-model="verifyNewUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input">
-              </div>
+        <form ng-submit="addUser()" name="signUpForm">
+          <div class="row">
+            <div class="col-lg-3">
+              <b>Username:</b><br>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" form="signUpForm" class="btn btn-primary">Register</button>
-        </div>
+            <div class="col-lg-9">
+              <input type="text" ng-model="newUsername" required="true" placeholder="UserName" class="sign-up-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Password:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="password" ng-model="newUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Verify Password:</b>
+            </div>
+            <div class="col-lg-9">
+              <input type="password" ng-model="verifyNewUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" ng-click="addUser()" class="btn btn-primary">Register</button>
       </div>
     </div>
   </div>
+</div>
 
-  <div id="signInModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Sign In</h4>
+<div id="signInModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+          </div>
         </div>
-        <div class="modal-body">
-          <form ng-submit="signIn()" name="signInForm">
-            <div class="row">
-              <div class="col-lg-3">
-                <b>Username:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
-              </div>
-              <div class="col-lg-3">
-                <b>Password:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
-              </div>
+        <form ng-submit="signIn()" name="signInForm">
+          <div class="row">
+            <div class="col-lg-3">
+              <b>Username:</b><br>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" form="signInForm" class="btn btn-primary">Register</button>
-        </div>
+            <div class="col-lg-9">
+              <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
+            </div>
+            <div class="col-lg-3">
+              <b>Password:</b><br>
+            </div>
+            <div class="col-lg-9">
+              <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" ng-click="signIn()" class="btn btn-primary">Sign In</button>
       </div>
     </div>
   </div>
+</div>
 
 <!-- Header -->
 <div class="container">
@@ -81,11 +91,14 @@
     <div class="col-lg-6">
       <h1 class="head-text"></h1>
     </div>
-    <div class="col-lg-1 head-btn">
-      <button type="button" class="btn btn-default shadow-box" data-toggle="modal" data-target="#signInModal">Sign in</button>
+    <div class="col-lg-1 head-btn" ng-hide="signedIn">
+      <button type="button" class="btn btn-default shadow-box" data-toggle="modal" data-target="#signInModal">Sign In</button>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1" ng-hide="signedIn">
       <button type="button" class="btn btn-default head-btn shadow-box" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+    </div>
+    <div class="col-lg-1 col-lg-offset-1" ng-show="signedIn">
+      <button type="button" class="btn btn-default head-btn shadow-box">Logout</button>
     </div>
   </div>
 

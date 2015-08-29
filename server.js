@@ -4,7 +4,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     session = require('express-session'),
     passport = require('passport'),
-    privateInfo = require('./private/keys'),
+    privateInfo = require('./config/keys'),
     app = express();
 
 /////////////Controllers/////////////
@@ -30,6 +30,10 @@ app.get('/bill', billCtrl.readAll);
 app.get('/bill/comments/:billId', billCtrl.getComments);
 app.put('/bill/:billId', billCtrl.updateVote);
 app.post('/bill/comments/:billId', billCtrl.postComment);
+
+app.post('/user/login', passport.authenticate('local'), function(req, res) {
+  res.json(req.user);
+});
 app.post('/user/new', userCtrl.createUser);
 
 /////////////Connections/////////////
