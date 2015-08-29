@@ -84,12 +84,12 @@
 <!-- Header -->
 <div class="container">
   <div class="row page-header">
-    <div class="col-lg-4">
+    <div class="col-lg-2">
       <img src="./washington-dc-us-capitol-s.jpg" alt="Capitol" class="capitol-icon shadow-box" />
       <h4 class="head-text">VoteTracker</h4>
     </div>
-    <div class="col-lg-6">
-      <h1 class="head-text"></h1>
+    <div class="col-lg-8">
+      <alert ng-repeat="alert in logoutAlerts" type="{{alert.type}}" close="closeLogoutAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
     </div>
     <div class="col-lg-1 head-btn" ng-hide="signedIn">
       <button type="button" class="btn btn-default shadow-box" data-toggle="modal" data-target="#signInModal">Sign In</button>
@@ -98,7 +98,7 @@
       <button type="button" class="btn btn-default head-btn shadow-box" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
     </div>
     <div class="col-lg-1 col-lg-offset-1" ng-show="signedIn">
-      <button type="button" class="btn btn-default head-btn shadow-box">Logout</button>
+      <button type="button" class="btn btn-default head-btn shadow-box" ng-click="logout()">Logout</button>
     </div>
   </div>
 

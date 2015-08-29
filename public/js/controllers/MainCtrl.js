@@ -1,5 +1,12 @@
-app.controller('MainCtrl', function($scope, mainService) {
+app.controller('MainCtrl', function($scope, mainService, $cookies) {
+  if ($cookies.getObject('signedIn') === 1) {
+    $scope.signedIn = true;
+  } else {
+    $cookies.putObject('signedIn', 0);
+    $scope.signedIn = false;
+  }
   $scope.alerts = [];
+  $scope.logoutAlerts = [];
 
   $scope.addUser = function() {
     if ($scope.newUserPassword !== $scope.verifyNewUserPassword) {
@@ -20,6 +27,7 @@ app.controller('MainCtrl', function($scope, mainService) {
     .then(function(response) {
       $scope.existingUsername = '';
       $scope.existingUserPassword = '';
+      $cookies.putObject('signedIn', 1);
       $scope.signedIn = true;
       $scope.alerts.push({type: 'success', msg: "Log in successful!"});
     }, function(error) {
@@ -27,7 +35,19 @@ app.controller('MainCtrl', function($scope, mainService) {
     });
   };
 
+  $scope.logout = function() {
+    mainService.logout().then(function() {
+      $cookies.putObject('signedIn', 0);
+      $scope.signedIn = false;
+      $scope.logoutAlerts.push({type: 'success', msg: "Logout successful"});
+    });
+  };
+
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
+  };
+
+  $scope.closeLogoutAlert = function(index) {
+    $scope.logoutAlerts.splice(index, 1);
   };
 });

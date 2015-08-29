@@ -35,6 +35,10 @@ app.post('/user/login', passport.authenticate('local'), function(req, res) {
   res.json(req.user);
 });
 app.post('/user/new', userCtrl.createUser);
+app.get('/user/logout', function(req, res) {
+  req.logout();
+  res.end();
+});
 
 /////////////Connections/////////////
 var mongoUri = 'mongodb://localhost:27017/vote-tracker';

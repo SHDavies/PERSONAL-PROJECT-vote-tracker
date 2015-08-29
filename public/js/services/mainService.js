@@ -32,4 +32,15 @@ app.service('mainService', function($q, $http) {
     });
     return deferred.promise;
   };
+
+  this.logout = function() {
+    var deferred = $q.defer();
+    $http({
+      url: 'http://localhost:4000/user/logout',
+      method: 'GET',
+    }).then(function() {
+      deferred.resolve();
+    });
+    return deferred.promise;
+  };
 });
