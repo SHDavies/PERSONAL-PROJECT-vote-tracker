@@ -42,7 +42,7 @@ app.get('/user/logout', function(req, res) {
 app.get('/user/:userId', userCtrl.getUser);
 
 /////////////Connections/////////////
-var mongoUri = 'mongodb://localhost:27017/vote-tracker';
+var mongoUri = 'mongodb://spencerhdavies:' + privateInfo.mongolabpw + '@ds041673.mongolab.com:41673/vote-tracker';
 
 mongoose.set('debug', true);
 mongoose.connect(mongoUri);
