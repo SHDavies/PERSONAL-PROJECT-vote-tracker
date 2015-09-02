@@ -9,8 +9,8 @@ var express = require('express'),
     port = process.env.PORT || 4000;
 
 /////////////Controllers/////////////
-var billCtrl = require('./controllers/billCtrl'),
-    userCtrl = require('./controllers/userCtrl');
+var billCtrl = require('./controllers/billCtrl');
+var userCtrl = require('./controllers/userCtrl.js');
 
 /////////////Middleware/////////////
 
