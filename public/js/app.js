@@ -14,10 +14,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './views/main.home.html',
       controller: 'HomeCtrl'
     })
-    .state('admin', {
-      templateUrl: './views/admin.html',
-      controller: 'AdminCtrl'
-    })
     .state('main.comments', {
       url: '/comments/:billId',
       templateUrl: './views/main.comments.html',
@@ -25,6 +21,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       resolve: {
         bill: function(commentsService, $stateParams) {
           return commentsService.getComments($stateParams.billId);
+        }
+      }
+    })
+    .state('main.profile', {
+      url: '/profile/:userId',
+      templateUrl: './views/main.profile.html',
+      controller: 'ProfileCtrl',
+      resolve: {
+        user: function(profileService, $stateParams) {
+          return profileService.getUser($stateParams.userId);
         }
       }
     });

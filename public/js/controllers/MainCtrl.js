@@ -1,6 +1,7 @@
 app.controller('MainCtrl', function($scope, mainService, $cookies) {
   if ($cookies.getObject('signedIn')) {
     $scope.signedIn = true;
+    $scope.user = $cookies.getObject('signedIn');
   } else {
     $cookies.putObject('signedIn', "");
     $scope.signedIn = false;
@@ -41,6 +42,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies) {
       $cookies.putObject('signedIn', "");
       $scope.signedIn = false;
       $scope.signedInAlerts.push({type: 'success', msg: "Logout successful"});
+      $scope.user = {};
     });
   };
 

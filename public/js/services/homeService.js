@@ -10,14 +10,28 @@ app.service('homeService', function($http, $q) {
     return deferred.promise;
   };
 
-  this.billVote = function(vote, billId) {
+  this.billVote = function(vote, userId, billId, voteId) {
     var deferred = $q.defer();
     $http({
       method: 'PUT',
       url: 'http://localhost:4000/bill/' + billId,
       data: {
-        vote: vote
+        vote: vote,
+        userId: userId,
+        voteId: voteId
       }
+    }).then(function(response) {
+      deferred.resolve(response.data);
+    });
+    return deferred.promise;
+  };
+
+  this.addBill = function(billObj) {
+    var deferred = $q.defer();
+    $http({
+      url: 'http://localhost:4000/bill',
+      method: 'POST',
+      data: billObj
     }).then(function(response) {
       deferred.resolve(response.data);
     });

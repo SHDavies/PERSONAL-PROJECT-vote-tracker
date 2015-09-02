@@ -1,8 +1,11 @@
 <div class="container-fluid comment-page">
+  <div class="col-lg-12 row home-alerts">
+    <alert ng-repeat="alert in alerts" class="shadow-box" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+  </div>
   <div class="row">
     <div class="col-lg-12 panel panel-default shadow-box" style="padding-bottom: 10px">
       <h1 class="col-lg-11">{{bill.short_title}}</h1>
-      <a ui-sref="main.home"><span class="glyphicon glyphicon-menu-left"></span></a>
+      <a href="javascript:history.back()"><span class="glyphicon glyphicon-menu-left"></span></a>
     </div>
   </div>
   <div class="row">
@@ -14,6 +17,6 @@
   <br>
   <div class="row panel panel-default shadow-box" style="padding: 15px" ng-repeat="comment in bill.comments">
     <div class="col-md-12"><span class="glyphicon glyphicon-triangle-right"></span>{{comment.comment.comment}}</div>
-    <div class="col-md-12">{{comment.comment.created_by}} | {{comment.comment.timestamp | date}}</div>
+    <div class="col-md-12">{{comment.comment.commenter.username}} | {{comment.comment.timestamp | date}}</div>
   </div>
 </div>

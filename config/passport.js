@@ -16,7 +16,6 @@ module.exports = function(passport) {
   },
     function(req, username, password, done) {
       User.findOne({'username': username}, function(err, user) {
-        console.log(user);
         if (err) return done(err);
         if (!user) {
           return done(null, false);

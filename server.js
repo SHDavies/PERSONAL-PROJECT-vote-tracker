@@ -39,6 +39,7 @@ app.get('/user/logout', function(req, res) {
   req.logout();
   res.end();
 });
+app.get('/user/:userId', userCtrl.getUser);
 
 /////////////Connections/////////////
 var mongoUri = 'mongodb://localhost:27017/vote-tracker';

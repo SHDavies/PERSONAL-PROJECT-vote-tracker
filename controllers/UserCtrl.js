@@ -9,5 +9,17 @@ module.exports = {
       if (err) return res.status(500).send(err);
       else res.send(user);
     });
+  },
+
+  getUser: function(req, res) {
+    User.findById(req.params.userId)
+    .populate('comments.comment')
+    .populate('downvotes.bill')
+    .populate('upvotes.bill')
+    .populate('bill_posts.bill')
+    .exec(function(err, user) {
+      if (err) return res.status(500).send(err);
+      else res.send(user);
+    });
   }
 };

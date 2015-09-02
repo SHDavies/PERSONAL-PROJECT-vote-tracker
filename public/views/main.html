@@ -6,39 +6,39 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Sign Up</h4>
       </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-10 col-lg-offset-1">
-            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
-          </div>
-        </div>
-        <form ng-submit="addUser()" name="signUpForm">
+      <form ng-submit="addUser()" name="signUpForm">
+        <div class="modal-body">
           <div class="row">
-            <div class="col-lg-3">
-              <b>Username:</b><br>
-            </div>
-            <div class="col-lg-9">
-              <input type="text" ng-model="newUsername" required="true" placeholder="UserName" class="sign-up-input"><br><br>
-            </div>
-            <div class="col-lg-3">
-              <b>Password:</b><br>
-            </div>
-            <div class="col-lg-9">
-              <input type="password" ng-model="newUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
-            </div>
-            <div class="col-lg-3">
-              <b>Verify Password:</b>
-            </div>
-            <div class="col-lg-9">
-              <input type="password" ng-model="verifyNewUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input">
+            <div class="col-lg-10 col-lg-offset-1">
+              <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" ng-click="addUser()" class="btn btn-primary">Register</button>
-      </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <b>Username:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="text" ng-model="newUsername" required="true" placeholder="UserName" class="sign-up-input"><br><br>
+              </div>
+              <div class="col-lg-3">
+                <b>Password:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="password" ng-model="newUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+              </div>
+              <div class="col-lg-3">
+                <b>Verify Password:</b>
+              </div>
+              <div class="col-lg-9">
+                <input type="password" ng-model="verifyNewUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input">
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -50,33 +50,33 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Sign In</h4>
       </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-10 col-lg-offset-1">
-            <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
-          </div>
-        </div>
-        <form ng-submit="signIn()" name="signInForm">
+      <form ng-submit="signIn()" name="signInForm">
+        <div class="modal-body">
           <div class="row">
-            <div class="col-lg-3">
-              <b>Username:</b><br>
-            </div>
-            <div class="col-lg-9">
-              <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
-            </div>
-            <div class="col-lg-3">
-              <b>Password:</b><br>
-            </div>
-            <div class="col-lg-9">
-              <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+            <div class="col-lg-10 col-lg-offset-1">
+              <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" ng-click="signIn()" class="btn btn-primary">Sign In</button>
-      </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <b>Username:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
+              </div>
+              <div class="col-lg-3">
+                <b>Password:</b><br>
+              </div>
+              <div class="col-lg-9">
+                <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -105,10 +105,8 @@
 <!-- Body -->
   <div class="row">
     <div class="col-lg-2 side-bar">
-      <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" class="active shadow-box"><a ui-sref="main.home">Home</a></li>
-        <li role="presentation"><a ui-sref="main.profile">Profile</a></li>
-      </ul>
+      <a ui-sref="main.home"><button role="presentation" class="shadow-box btn btn-primary col-lg-10">Home</button></a><br><br><br>
+      <a href="#/main/profile/{{user._id}}" ng-show="signedIn"><button role="presentation" class="col-lg-10 shadow-box btn btn-primary">Profile</button></a>
     </div>
     <div ui-view class="col-lg-10"></div>
     </div>

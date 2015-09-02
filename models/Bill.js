@@ -18,7 +18,7 @@ var billSchema = new mongoose.Schema({
     }
   },
   upvotes: {type: Number, min: 0, default: 0},
-  downvotes: {type: Number, min: 0, default: 0},
+  downvotes: {type: Number, min : 0, default: 0},
   created_by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   comments: [{
     comment: {type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}

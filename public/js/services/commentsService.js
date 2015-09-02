@@ -10,7 +10,7 @@ app.service('commentsService', function($q, $http) {
     return deferred.promise;
   };
 
-  this.postComment = function(comment, billId) {
+  this.postComment = function(comment, userId, billId) {
     var date = new Date();
     var deferred = $q.defer();
     $http({
@@ -18,6 +18,7 @@ app.service('commentsService', function($q, $http) {
       url: 'http://localhost:4000/bill/comments/' + billId,
       data: {
         comment: comment,
+        commenter: userId,
         timestamp: date
       }
     }).then(function(response) {

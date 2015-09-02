@@ -72,8 +72,7 @@
       <div class="panel-body">
         <div class="row">
           <up-down class="col-sm-1"></up-down>
-          <h3 class="col-sm-6">{{bill.short_title}}</h3>
-          <h3 class="col-sm-2 status">{{bill.created_by}}</h3>
+          <h3 class="col-sm-8">{{bill.short_title}}</h3>
           <h5 class="col-sm-2 status">{{bill.status | uppercase}}</h5>
           <span class="glyphicon glyphicon-collapse-down" drop-down ng-click="showDescription = !showDescription"></span>
           <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-comment"></span></a>
@@ -101,6 +100,11 @@
         <div class="row">
           <div class="col-sm-12">
             <p>{{bill.description}}</p>
+          </div>
+        </div>
+        <div class="row" ng-show="bill.created_by">
+          <div class="col-sm-12">
+            <p><strong>Posted by:</strong> {{bill.created_by.username}}</p>
           </div>
         </div>
       </div>

@@ -141,6 +141,14 @@ up-down {
   color: grey;
 }
 
+.upvoted {
+  background-color: #009933;
+}
+
+.downvoted {
+  background-color: #CC0000;
+}
+
 .comment-submit {
   margin-top: 10px;
 }
