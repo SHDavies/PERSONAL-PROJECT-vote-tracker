@@ -10,7 +10,7 @@ var express = require('express'),
 
 /////////////Controllers/////////////
 var billCtrl = require('./controllers/billCtrl'),
-    userCtrl = require('./controllers/UserCtrl');
+    userCtrl = require('./controllers/userCtrl');
 
 /////////////Middleware/////////////
 
