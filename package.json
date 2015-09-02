@@ -1,6 +1,10 @@
 {
   "name": "personal-project",
   "version": "1.0.0",
+  "engines": {
+    "iojs": "3.0.0",
+    "npm": "2.13.3"
+  },
   "description": "Reddit style app for congressional bills",
   "main": "server.js",
   "scripts": {
