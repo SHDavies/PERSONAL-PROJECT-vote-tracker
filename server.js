@@ -5,7 +5,8 @@ var express = require('express'),
     session = require('express-session'),
     passport = require('passport'),
     privateInfo = require('./config/keys'),
-    app = express();
+    app = express(),
+    port = process.env.PORT || 4000;
 
 /////////////Controllers/////////////
 var billCtrl = require('./controllers/billCtrl'),
@@ -50,6 +51,6 @@ mongoose.connection.once('open', function() {
   console.log('Connected to MongoDB at ', mongoUri);
 });
 
-app.listen(4000, function() {
-  console.log('Listening on port 4000');
+app.listen(port, function() {
+  console.log('Listening on port' + port);
 });
