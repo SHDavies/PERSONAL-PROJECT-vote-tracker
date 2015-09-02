@@ -3,7 +3,7 @@ app.service('profileService', function($http, $q) {
     var deferred = $q.defer();
     $http({
       method: "GET",
-      url: "http://localhost:4000/user/" + userId
+      url: "user/" + userId
     }).then(function(response) {
       deferred.resolve(response.data);
     });

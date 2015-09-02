@@ -2,7 +2,7 @@ app.service('mainService', function($q, $http) {
   this.addUser = function(username, password) {
     var deferred = $q.defer();
     $http({
-      url: 'http://localhost:4000/user/new',
+      url: 'user/new',
       method: 'POST',
       data: {
         username: username,
@@ -19,7 +19,7 @@ app.service('mainService', function($q, $http) {
   this.signIn = function(username, password) {
     var deferred = $q.defer();
     $http({
-      url: 'http://localhost:4000/user/login',
+      url: 'user/login',
       method: 'POST',
       data: {
         username: username,
@@ -36,7 +36,7 @@ app.service('mainService', function($q, $http) {
   this.logout = function() {
     var deferred = $q.defer();
     $http({
-      url: 'http://localhost:4000/user/logout',
+      url: 'user/logout',
       method: 'GET',
     }).then(function() {
       deferred.resolve();

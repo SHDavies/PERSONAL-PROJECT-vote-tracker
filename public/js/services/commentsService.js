@@ -3,7 +3,7 @@ app.service('commentsService', function($q, $http) {
     var deferred = $q.defer();
     $http({
       method: 'GET',
-      url: 'http://localhost:4000/bill/comments/' + billId
+      url: 'bill/comments/' + billId
     }).then(function(response) {
       deferred.resolve(response.data);
     });
@@ -15,7 +15,7 @@ app.service('commentsService', function($q, $http) {
     var deferred = $q.defer();
     $http({
       method: 'POST',
-      url: 'http://localhost:4000/bill/comments/' + billId,
+      url: 'bill/comments/' + billId,
       data: {
         comment: comment,
         commenter: userId,

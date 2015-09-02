@@ -3,7 +3,7 @@ app.service('homeService', function($http, $q) {
     var deferred = $q.defer();
     $http({
       method: 'GET',
-      url: 'http://localhost:4000/bill'
+      url: 'bill'
     }).then(function(response) {
       deferred.resolve(response.data);
     });
@@ -14,7 +14,7 @@ app.service('homeService', function($http, $q) {
     var deferred = $q.defer();
     $http({
       method: 'PUT',
-      url: 'http://localhost:4000/bill/' + billId,
+      url: 'bill/' + billId,
       data: {
         vote: vote,
         userId: userId,
@@ -29,7 +29,7 @@ app.service('homeService', function($http, $q) {
   this.addBill = function(billObj) {
     var deferred = $q.defer();
     $http({
-      url: 'http://localhost:4000/bill',
+      url: 'bill',
       method: 'POST',
       data: billObj
     }).then(function(response) {
