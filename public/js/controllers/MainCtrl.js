@@ -1,4 +1,4 @@
-app.controller('MainCtrl', function($scope, mainService, $cookies) {
+app.controller('MainCtrl', function($scope, mainService, $cookies, $modal, $modalInstance) {
   if ($cookies.getObject('signedIn')) {
     $scope.signedIn = true;
     $scope.user = $cookies.getObject('signedIn');
@@ -9,6 +9,15 @@ app.controller('MainCtrl', function($scope, mainService, $cookies) {
   $scope.alerts = [];
   $scope.signedInAlerts = [];
 
+  $scope.open = function(modal) {
+    var modalInstance = $modal.open({
+      animation: true,
+      templateUrl: modal
+    });
+
+    modalInstance();
+  };
+
   $scope.addUser = function() {
     if ($scope.newUserPassword !== $scope.verifyNewUserPassword) {
       $scope.alerts.push({type: "danger", msg: "Passwords do not match. Please try again."});
@@ -18,7 +27,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies) {
         $scope.newUsername = "";
         $scope.newUserPassword = "";
         $scope.verifyNewUserPassword = "";
-        $scope.alerts.push({type: "success", msg: "User successfully created! Please log in."});
+        $modalInstance.close();
       });
     }
   };
@@ -31,7 +40,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies) {
       $scope.existingUserPassword = '';
       $cookies.putObject('signedIn', $scope.user);
       $scope.signedIn = true;
-      $scope.alerts.push({type: 'success', msg: "Log in successful!"});
+      $modalInstance.close();
     }, function(error) {
       $scope.alerts.push({type: 'danger', msg: "Username/Password combination not valid"});
     });
@@ -44,6 +53,10 @@ app.controller('MainCtrl', function($scope, mainService, $cookies) {
       $scope.signedInAlerts.push({type: 'success', msg: "Logout successful"});
       $scope.user = {};
     });
+  };
+
+  $scope.close = function() {
+    $modalInstance.dismiss();
   };
 
   $scope.closeAlert = function(index) {
