@@ -38,43 +38,38 @@
   </form>
 </script>
 
-<div id="signInModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Sign In</h4>
-      </div>
-      <form ng-submit="signIn()" name="signInForm">
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
-              <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
-            </div>
-          </div>
-            <div class="row">
-              <div class="col-lg-3">
-                <b>Username:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
-              </div>
-              <div class="col-lg-3">
-                <b>Password:</b><br>
-              </div>
-              <div class="col-lg-9">
-                <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
-              </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Sign In</button>
-        </div>
-      </form>
-    </div>
+<script type="text/ng-template" id="signInModal.html">
+  <div class="modal-header">
+    <h4 class="modal-title">Sign In</h4>
   </div>
-</div>
+  <form ng-submit="signIn()" name="signInForm">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <b>Username:</b><br>
+          </div>
+          <div class="col-lg-9">
+            <input type="text" ng-model="existingUsername" required="true" placeholder="example@email.com" class="sign-up-input"><br><br>
+          </div>
+          <div class="col-lg-3">
+            <b>Password:</b><br>
+          </div>
+          <div class="col-lg-9">
+            <input type="password" ng-model="existingUserPassword" required="true" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" class="sign-up-input"><br><br>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </div>
+  </form>
+</script>
 
 <!-- Header -->
 <div class="container">
@@ -87,10 +82,10 @@
       <alert ng-repeat="alert in signedInAlerts" class="shadow-box" type="{{alert.type}}" close="closeSignedInAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
     </div>
     <div class="col-lg-1 head-btn" ng-hide="signedIn">
-      <button type="button" class="btn btn-default shadow-box" ng-click="open('signInModal.html')">Sign In</button>
+      <button type="button" class="btn btn-default shadow-box" ng-click="openSignIn()">Sign In</button>
     </div>
     <div class="col-lg-1" ng-hide="signedIn">
-      <button type="button" class="btn btn-default head-btn shadow-box" ng-click="open('signUpModal.html')">Sign Up</button>
+      <button type="button" class="btn btn-default head-btn shadow-box" ng-click="openSignUp()">Sign Up</button>
     </div>
     <div class="col-lg-1 col-lg-offset-1" ng-show="signedIn">
       <button type="button" class="btn btn-default head-btn shadow-box" ng-click="logout()">Logout</button>

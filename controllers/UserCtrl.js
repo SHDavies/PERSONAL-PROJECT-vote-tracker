@@ -7,7 +7,10 @@ module.exports = {
     newUser.password = newUser.generateHash(req.body.password);
     newUser.save(function(err, user) {
       if (err) return res.status(500).send(err);
-      else res.send(user);
+      else {
+        req.login(user);
+        res.send(user);
+      }
     });
   },
 

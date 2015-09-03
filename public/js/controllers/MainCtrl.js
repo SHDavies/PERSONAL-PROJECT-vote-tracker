@@ -1,4 +1,4 @@
-app.controller('MainCtrl', function($scope, mainService, $cookies, $modal, $modalInstance) {
+app.controller('MainCtrl', function($scope, mainService, $cookies, $modal) {
   if ($cookies.getObject('signedIn')) {
     $scope.signedIn = true;
     $scope.user = $cookies.getObject('signedIn');
@@ -6,43 +6,34 @@ app.controller('MainCtrl', function($scope, mainService, $cookies, $modal, $moda
     $cookies.putObject('signedIn', "");
     $scope.signedIn = false;
   }
-  $scope.alerts = [];
+
   $scope.signedInAlerts = [];
 
-  $scope.open = function(modal) {
+  $scope.openSignUp = function() {
     var modalInstance = $modal.open({
       animation: true,
-      templateUrl: modal
+      templateUrl: "signUpModal.html",
+      controller: 'SignUpCtrl'
     });
 
-    modalInstance();
-  };
-
-  $scope.addUser = function() {
-    if ($scope.newUserPassword !== $scope.verifyNewUserPassword) {
-      $scope.alerts.push({type: "danger", msg: "Passwords do not match. Please try again."});
-    } else {
-      mainService.addUser($scope.newUsername, $scope.newUserPassword)
-      .then(function(response) {
-        $scope.newUsername = "";
-        $scope.newUserPassword = "";
-        $scope.verifyNewUserPassword = "";
-        $modalInstance.close();
-      });
-    }
-  };
-
-  $scope.signIn = function() {
-    mainService.signIn($scope.existingUsername, $scope.existingUserPassword)
-    .then(function(response) {
-      $scope.user = response;
-      $scope.existingUsername = '';
-      $scope.existingUserPassword = '';
+    modalInstance.result.then(function(user) {
+      $scope.user = user;
       $cookies.putObject('signedIn', $scope.user);
       $scope.signedIn = true;
-      $modalInstance.close();
-    }, function(error) {
-      $scope.alerts.push({type: 'danger', msg: "Username/Password combination not valid"});
+    });
+  };
+
+  $scope.openSignIn = function() {
+    var modalInstance = $modal.open({
+      animation: true,
+      templateUrl: "signInModal.html",
+      controller: 'SignInCtrl'
+    });
+
+    modalInstance.result.then(function(user) {
+      $scope.user = user;
+      $cookies.putObject('signedIn', $scope.user);
+      $scope.signedIn = true;
     });
   };
 
@@ -53,10 +44,6 @@ app.controller('MainCtrl', function($scope, mainService, $cookies, $modal, $moda
       $scope.signedInAlerts.push({type: 'success', msg: "Logout successful"});
       $scope.user = {};
     });
-  };
-
-  $scope.close = function() {
-    $modalInstance.dismiss();
   };
 
   $scope.closeAlert = function(index) {
