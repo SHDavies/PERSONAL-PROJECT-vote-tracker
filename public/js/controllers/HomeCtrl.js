@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', function($scope, homeService, $cookie, $position) {
+app.controller('HomeCtrl', function($scope, homeService, $cookies, $position) {
 
   $scope.alerts = [];
 
