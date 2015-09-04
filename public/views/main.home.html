@@ -75,8 +75,10 @@
           <h3 class="col-sm-8">{{bill.short_title}}</h3>
           <h5 class="col-sm-2 status">{{bill.status | uppercase}}</h5>
           <span class="glyphicon glyphicon-collapse-down" drop-down ng-click="showDescription = !showDescription"></span>
-          <a href="#/main/comments/{{bill._id}}"><span class="glyphicon glyphicon-comment"></span></a>
-          <span class="comment-count">{{bill.comments.length}}</span>
+          <a href="#/main/comments/{{bill._id}}">
+            <span class="glyphicon glyphicon-comment"></span>
+            <span class="comment-count">{{bill.comments.length}}</span>
+          </a>
         </div>
       </div>
       <div class="panel-footer more-box" ng-show="showDescription">
