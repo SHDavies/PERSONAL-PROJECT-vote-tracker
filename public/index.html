@@ -21,7 +21,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-cookies.js"></script>
 <script>
   var vid = document.getElementById("bgvideo");
-  vid.playbackRate = 0.75;
+  vid.playbackRate = 0.80;
+  vid.addEventListener("timeupdate", function() {
+    if(this.currentTime >=12.7) {
+      this.currentTime = 0.0;
+    }
+  });
 </script>
 <script src="./js/app.js"></script>
 <script src="./js/ui-bootstrap-tpls-0.13.3.js"></script>
