@@ -8,9 +8,8 @@ module.exports = {
     newUser.save(function(err, user) {
       if (err) return res.status(500).send(err);
       else {
-        req.login(user, function(error) {
-          res.send(user);
-        });
+        req.login(user);
+        res.send(user);
       }
     });
   },
