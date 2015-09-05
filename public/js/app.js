@@ -33,5 +33,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
           return profileService.getUser($stateParams.userId);
         }
       }
+    })
+    .state('main.about', {
+      url: '/about',
+      templateUrl: './views/main.about.html'
     });
 });
