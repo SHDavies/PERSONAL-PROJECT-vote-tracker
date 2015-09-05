@@ -27,52 +27,56 @@ app.controller('HomeCtrl', function($scope, homeService, $cookies, $position) {
 
   $scope.showDescription = false;
 
-  $scope.billVote = function(vote, index) {
+  // $scope.score = function(bill) {
+  //   return (bill.upvotes - bill.downvotes);
+  // };
+
+  $scope.billVote = function(vote, billId) {
     if ($scope.$parent.signedIn) {
       var user = $cookies.getObject('signedIn');
       var userId = user._id;
-      var billId = $scope.bills[index]._id;
+      var billIndex = $scope.bills.map(function(x) {return x._id;}).indexOf(billId);
       var upvoteIndex = user.upvotes.map(function(x) {return x.bill;}).indexOf(billId);
       var downvoteIndex = user.downvotes.map(function(x) {return x.bill;}).indexOf(billId);
       if (vote === "up") {
         if (upvoteIndex === -1 && downvoteIndex === -1) {
           homeService.billVote('up', userId, billId).then(function(response) {
-            $scope.bills[index].upvotes++;
-            $scope.bills[index].voteStatus = "upvoted";
+            $scope.bills[billIndex].upvotes++;
+            $scope.bills[billIndex].voteStatus = "upvoted";
             $cookies.putObject('signedIn', response);
           });
         } else if (upvoteIndex !== -1) {
           homeService.billVote('unUp', userId, billId, user.upvotes[upvoteIndex]._id).then(function(response) {
-            $scope.bills[index].upvotes--;
-            $scope.bills[index].voteStatus = "";
+            $scope.bills[billIndex].upvotes--;
+            $scope.bills[billIndex].voteStatus = "";
             $cookies.putObject('signedIn', response);
           });
         } else if (downvoteIndex !== -1) {
           homeService.billVote('downToUp', userId, billId, user.downvotes[downvoteIndex]._id).then(function(response) {
-            $scope.bills[index].upvotes++;
-            $scope.bills[index].downvotes--;
-            $scope.bills[index].voteStatus = "upvoted";
+            $scope.bills[billIndex].upvotes++;
+            $scope.bills[billIndex].downvotes--;
+            $scope.bills[billIndex].voteStatus = "upvoted";
             $cookies.putObject('signedIn', response);
           });
         }
       } else if (vote === "down") {
         if (upvoteIndex === -1 && downvoteIndex === -1) {
           homeService.billVote('down', userId, billId).then(function(response) {
-            $scope.bills[index].downvotes++;
-            $scope.bills[index].voteStatus = "downvoted";
+            $scope.bills[billIndex].downvotes++;
+            $scope.bills[billIndex].voteStatus = "downvoted";
             $cookies.putObject('signedIn', response);
           });
         } else if (upvoteIndex !== -1) {
           homeService.billVote('upToDown', userId, billId, user.upvotes[upvoteIndex]._id).then(function(response) {
-            $scope.bills[index].upvotes--;
-            $scope.bills[index].downvotes++;
-            $scope.bills[index].voteStatus = "downvoted";
+            $scope.bills[billIndex].upvotes--;
+            $scope.bills[billIndex].downvotes++;
+            $scope.bills[billIndex].voteStatus = "downvoted";
             $cookies.putObject('signedIn', response);
           });
         } else if (downvoteIndex !== -1) {
           homeService.billVote('unDown', userId, billId, user.downvotes[downvoteIndex]._id).then(function(response) {
-            $scope.bills[index].downvotes--;
-            $scope.bills[index].voteStatus = "";
+            $scope.bills[billIndex].downvotes--;
+            $scope.bills[billIndex].voteStatus = "";
             $cookies.putObject('signedIn', response);
           });
         }

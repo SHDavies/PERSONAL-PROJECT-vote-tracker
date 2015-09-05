@@ -67,7 +67,7 @@
   <div class="col-lg-12 row home-alerts">
     <alert ng-repeat="alert in alerts" class="shadow-box" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="3000">{{alert.msg}}</alert>
   </div>
-  <div class="row bill-cell" ng-repeat="bill in bills">
+  <div class="row bill-cell" ng-repeat="bill in bills | orderBy: 'upvotes - downvotes': true">
     <div class="panel panel-primary col-md-12 bill-panel shadow-box">
       <div class="panel-body">
         <div class="row">
