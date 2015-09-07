@@ -23,13 +23,13 @@ app.controller('HomeCtrl', function($scope, homeService, $cookies, $position) {
     });
   };
 
+  $scope.$on('authEvent', function(e) {
+    $scope.getAllBills();
+  });
+
   $scope.bills = $scope.getAllBills();
 
   $scope.showDescription = false;
-
-  // $scope.score = function(bill) {
-  //   return (bill.upvotes - bill.downvotes);
-  // };
 
   $scope.billVote = function(vote, billId) {
     if ($scope.$parent.signedIn) {

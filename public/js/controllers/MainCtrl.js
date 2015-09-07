@@ -20,6 +20,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies, $modal) {
       $scope.user = user;
       $cookies.putObject('signedIn', $scope.user);
       $scope.signedIn = true;
+      $scope.$broadcast('authEvent');
     });
   };
 
@@ -34,6 +35,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies, $modal) {
       $scope.user = user;
       $cookies.putObject('signedIn', $scope.user);
       $scope.signedIn = true;
+      $scope.$broadcast('authEvent');
     });
   };
 
@@ -43,6 +45,7 @@ app.controller('MainCtrl', function($scope, mainService, $cookies, $modal) {
       $scope.signedIn = false;
       $scope.signedInAlerts.push({type: 'success', msg: "Logout successful"});
       $scope.user = {};
+      $scope.$broadcast('authEvent');
     });
   };
 
