@@ -40,7 +40,7 @@
 }
 
 .shadow-box {
-  box-shadow: 5px 5px 10px #000
+  box-shadow: 5px 5px 10px #000;
 }
 
 .sign-up-input {
@@ -218,15 +218,6 @@ up-down {
   font-family: 'Scada', sans-serif;
   font-style:italic;
   padding: 5px 20px 15px 20px;
-  text-align: center;
-  /*text-shadow:
-    3px 3px 3px #1F2933,
-    /* Simulated effect for Firefox and Opera
-       and nice enhancement for WebKit */
-   -1px -1px 0 #1F2933,
-    1px -1px 0 #1F2933,
-   -1px  1px 0 #1F2933,
-    1px  1px 0 #1F2933;*/
 }
 
 .about p {
